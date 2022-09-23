@@ -889,7 +889,7 @@ Request.prototype.denyRequest = function(){
 
 var mainStream = new Stream(false);
 mainStream.addBox(new BoxObjects['matchbox']());
-mainStream.addBox(new BoxObjects['connect4box']());
+//mainStream.addBox(new BoxObjects['connect4box']());
 Console.addListeners(mainStream);
 mainStream.initializeSteamLogin();
 

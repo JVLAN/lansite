@@ -134,7 +134,7 @@ function Match(game, host, min, max){
 	this.users = [];
 
 	//automatically add host to the list of users
-	this.users.push(this.host);
+	//this.users.push(this.host);
 }
 
 Match.prototype.checkIfUserInMatch = function(userId) {

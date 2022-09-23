@@ -384,9 +384,12 @@ socket.on('areWeOP', function(msg) {
         $('#AdminLink-Button').click(function(){
             window.open('admin', '_blank');
         })
-
         //redraw all boxes with the X
         mainStream.redrawAllBoxes();
+    } else {
+	document.getElementById("Commands").style.display = "none";
+	document.getElementById("MatchBoxButtonHide").style.display = "none";
+	document.getElementById("VoteAddHide").style.display = "none";
     }
 });
 
