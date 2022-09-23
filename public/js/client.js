@@ -70,6 +70,7 @@ Stream.prototype.redrawAllBoxes = function() {
         element.update();
     });
 
+
 };
 
 Stream.prototype.clearScreen = function() {
@@ -224,10 +225,29 @@ Box.prototype.show = function() {
         var self = this;
         closeButton.click(function() {
             SendToServer.requestFromIndBox(self.unique, 'removebox', {});
+	    location.reload();
         });
 
         //show the close button
         closeButton.show();
+    } else if (this.id == "MatchBox" && !isThisUserOP) {
+	const boxes = document.querySelectorAll('.matchadd');
+
+	boxes.forEach(box => {
+	  box.style.display = 'none';
+	});
+    } else if (this.id == "VoteBox" && !isThisUserOP) {
+        const boxes = document.querySelectorAll('.voteadd');
+
+        boxes.forEach(box => {
+          box.style.display = 'none';
+        });
+
+        const boxesbtn = document.querySelectorAll('.voteaddbutton');
+
+        boxesbtn.forEach(box => {
+          box.style.display = 'none';
+        });
     }
 };
 
@@ -376,7 +396,6 @@ socket.on('updateUsers', function(msg) {
 socket.on('areWeOP', function(msg) {
     opCheck = msg && true;
     //if we're not already OP
-
     if (!isThisUserOP && opCheck){
         isThisUserOP = true;
 
@@ -388,8 +407,6 @@ socket.on('areWeOP', function(msg) {
         mainStream.redrawAllBoxes();
     } else {
 	document.getElementById("Commands").style.display = "none";
-	document.getElementById("MatchBoxButtonHide").style.display = "none";
-	document.getElementById("VoteAddHide").style.display = "none";
     }
 });
 
