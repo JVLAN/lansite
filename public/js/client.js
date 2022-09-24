@@ -29,7 +29,7 @@ $(function(){
   setInterval(function(){
     var currentTime = $('.currenttime');
     //put time into the div
-    currentTime.text(moment().format('hh:mm'));
+    currentTime.text(moment().format('hh:mm:ss'));
   },1000);
 });
 
