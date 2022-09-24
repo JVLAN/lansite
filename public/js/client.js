@@ -29,7 +29,7 @@ $(function(){
   setInterval(function(){
     var currentTime = $('.currenttime');
     //put time into the div
-    currentTime.text(moment().format('h:mma'));
+    currentTime.text(moment().format('hh:mm'));
   },1000);
 });
 
@@ -117,14 +117,14 @@ Sidebar.prototype.updateUsers = function() {
           //if the user is a Steam user
           if (user.steamInfo) {
             swalJson.imageUrl = user.steamInfo.avatar;
-            swalJson.text = 'Click <a href="';
+            swalJson.text = 'Clique <a href="';
             swalJson.text += 'http://steamcommunity.com/profiles/' + user.steamInfo.id;
-            swalJson.text += '" target="_blank">here</a> to go to their Steam profile.<br>';
+            swalJson.text += '" target="_blank">ici</a> pour voir son profil Steam.<br>';
           }
 
           //if pm's are enabled, and this user is not us
           if (user.canReceivePMs && user.id !== parseInt(Cookies.get('id'))) {
-            swalJson.text += '<br>Send them a private message:<br>';
+            swalJson.text += '<br>Envoie lui un message privé:<br>';
             swalJson.type = 'input';
             swalJson.showCancelButton = true;
             swalJson.closeOnConfirm = false;
@@ -133,11 +133,11 @@ Sidebar.prototype.updateUsers = function() {
             swal(swalJson, function(inputValue) {
                 if (inputValue === false) return false;
                 if (inputValue === "") {
-                    swal.showInputError("Your message can't be blank!");
+                    swal.showInputError("Votre message ne peut être vide!");
                     return false
                 }
                 if (inputValue.length > 255) {
-                    swal.showInputError("Your message is too long!");
+                    swal.showInputError("Votre message est trop long (255)!");
                     return false
                 }
 
@@ -145,7 +145,7 @@ Sidebar.prototype.updateUsers = function() {
                   userToReceiveMessage: user,
                   message: inputValue
                 });
-                swal("Message sent to " + user.username, "You wrote: " + inputValue, "success");
+                swal("Message envoyé à " + user.username, "Tu as écris: " + inputValue, "success");
             });
           } else {
             //show the popup
@@ -322,8 +322,8 @@ Popup.requestDenied = function(requestText) {
 
 Popup.lostConnection = function() {
     swal({
-      title: "Connection Lost",
-      text: "Attempting to reconnect to the server...",
+      title: "Connexion perdue",
+      text: "Essais de reconnexion automatique avec le serveur...",
       showConfirmButton: false,
       type: "error"
     });
@@ -443,8 +443,8 @@ socket.on('message', function(msg) {
     title: msg.userWhoSentMessage.username + " says:",
     text: msg.message,
     showCancelButton: true,
-    cancelButtonText: 'Close',
-    confirmButtonText: "Reply",
+    cancelButtonText: 'Fermer',
+    confirmButtonText: 'Répondre',
     closeOnConfirm: false
   }, function() {
     //find the user who sent this message
