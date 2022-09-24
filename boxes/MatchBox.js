@@ -74,7 +74,7 @@ MatchBox.prototype.addResponseListeners = function(socket, stream) {
 		//	will be sent to every client and must lack the socket to prevent an
 		//	error, and lack the secret so that it is not sent to everyone
 
-		stream.requestManager.addRequest(user, 'wants to find players for ' + game, function(){
+		stream.requestManager.addRequest(game, function(){
 			self.addMatch(game, user.toStrippedJson(), min, max);
 			Dispatcher.sendUpdatedBoxToAll(self, stream.users);
 		}, function() {});
