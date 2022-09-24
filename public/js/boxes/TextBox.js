@@ -29,7 +29,7 @@ TextBox.prototype.changeText = function(text) {
 }
 
 TextBox.addButtons = function(sidebar) {
-    sidebar.addButton(new Button('TextBox', 'Post a message'));
+    sidebar.addButton(new Button('TextBox', 'Envoyé une annonce'));
 
     //add an event to the submit button of the popup
     var popup = $('#TextBox-Popup');
