@@ -68,7 +68,7 @@ VoteBox.prototype.update = function() {
 }
 
 VoteBox.addButtons = function(sidebar) {
-    sidebar.addButton(new Button('VoteBox', 'Start a vote'));
+    sidebar.addButton(new Button('VoteBox', 'Démarrer un vote'));
 
     //add an event to the submit button of the popup
     var popup = $('#VoteBox-Popup');
