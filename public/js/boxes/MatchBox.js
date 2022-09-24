@@ -152,7 +152,7 @@ MatchBox.prototype.drawMatches = function() {
 }
 
 MatchBox.prototype.updateMatchString = function(match) {
-    var result = match.host.username + ' wants to play ' + match.game;
+    var result = match.game;
     $('#' + match.unique).children('.matchstring').html(result);
 }
 
