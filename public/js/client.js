@@ -407,6 +407,7 @@ socket.on('areWeOP', function(msg) {
         mainStream.redrawAllBoxes();
     } else {
 	document.getElementById("Commands").style.display = "none";
+        document.getElementById("Links").style.display = "none";
     }
 });
 

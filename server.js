@@ -856,7 +856,7 @@ RequestManager.prototype.userHasOpenRequest = function(id) {
 function Request(userThatMadeRequest, requestString, boxsUnique, acceptFunction, denyFunction) {
     this.unique = boxsUnique;
 
-    this.requestText = requestString.trim();
+    this.requestText = requestString;
     this.user = userThatMadeRequest;
     this.acceptFunction = acceptFunction;
     this.denyFunction = denyFunction;

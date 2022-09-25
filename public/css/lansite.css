@@ -1,6 +1,9 @@
 body {
   padding-top: 51px;
 }
+.btn {
+  white-space: normal !important;
+}
 .matchstring {
   white-space: normal;
 }
