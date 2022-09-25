@@ -251,6 +251,10 @@ Box.prototype.show = function() {
     if (this.id == "MatchBox") {
         $("#"+this.unique).prependTo("#stream");
     }
+	
+    if (this.id == "MatchBox" && isThisUserOP) {
+        closeButton.hide();
+    }
 };
 
 Box.emitEvent = function(boxUnique, eventName, data) {
