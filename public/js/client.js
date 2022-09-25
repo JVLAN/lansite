@@ -29,7 +29,7 @@ $(function(){
   setInterval(function(){
     var currentTime = $('.currenttime');
     //put time into the div
-    currentTime.text(moment().format('hh:mm:ss'));
+    currentTime.text(moment().format('HH:mm:ss'));
   },1000);
 });
 
@@ -69,8 +69,6 @@ Stream.prototype.redrawAllBoxes = function() {
         element.show();
         element.update();
     });
-
-
 };
 
 Stream.prototype.clearScreen = function() {
@@ -248,6 +246,10 @@ Box.prototype.show = function() {
         boxesbtn.forEach(box => {
           box.style.display = 'none';
         });
+    }
+
+    if (this.id == "MatchBox") {
+        $("#"+this.unique).prependTo("#stream");
     }
 };
 
@@ -441,7 +443,7 @@ socket.on('failed', function(msg) {
 
 socket.on('message', function(msg) {
   swal({
-    title: msg.userWhoSentMessage.username + " says:",
+    title: msg.userWhoSentMessage.username + " écris:",
     text: msg.message,
     showCancelButton: true,
     cancelButtonText: 'Fermer',
