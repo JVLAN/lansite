@@ -317,8 +317,8 @@ Stream.prototype.initializeSteamLogin = function() {
     };
 
     passport.use(new SteamStrategy({
-            returnURL: Config.url + ":" + Config.port + '/auth/steam/return',
-            realm: Config.url  + ":" + Config.port + '/',
+            returnURL: Config.url + '/auth/steam/return',
+            realm: Config.url + '/',
             apiKey: Config.steamAPIKey
         },
         function(identifier, profile, done) {
