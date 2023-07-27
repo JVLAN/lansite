@@ -251,7 +251,7 @@ Box.prototype.show = function() {
     if (this.id == "MatchBox") {
         $("#"+this.unique).prependTo("#stream");
     }
-	
+
     if (this.id == "MatchBox" && isThisUserOP) {
         closeButton.hide();
     }
@@ -405,10 +405,10 @@ socket.on('areWeOP', function(msg) {
     if (!isThisUserOP && opCheck){
         isThisUserOP = true;
 
-        mainSidebar.addButton(new Button('AdminLink', 'Admin Stream'));
-        $('#AdminLink-Button').click(function(){
-            window.open('admin', '_blank');
-        })
+        // mainSidebar.addButton(new Button('AdminLink', 'Admin Stream'));
+        // $('#AdminLink-Button').click(function(){
+        //     window.open('admin', '_blank');
+        // })
         //redraw all boxes with the X
         mainStream.redrawAllBoxes();
     } else {
