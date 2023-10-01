@@ -32,7 +32,7 @@
             "name": "Git Repo Address",
             "description": "GitHub Repo to clone\r\n\r\nI.E. https:\/\/github.com\/nickdevnl\/repo_name",
             "env_variable": "GIT_ADDRESS",
-            "default_value": "https:\/\/github.com\/IIPoliII\/lansite.git",
+            "default_value": "https:\/\/github.com\/JVLAN\/lansite.git",
             "user_viewable": true,
             "user_editable": true,
             "rules": "nullable|string",
