@@ -64,9 +64,9 @@ MatchBox.prototype.addResponseListeners = function(socket, stream) {
 
 	//sent when a client clicks the Find Players button
 	this.addRequestListener('newmatch', socket, stream, function(user, data) {
-		var game = data.game;
-		var min = data.min;
-		var max = data.max;
+		let game = data.game;
+		let min = data.min;
+		let max = data.max;
 
 		//user is used for addRequest, because the socket is needed to send the
 		//	request notification to the user
@@ -82,20 +82,30 @@ MatchBox.prototype.addResponseListeners = function(socket, stream) {
 }
 
 MatchBox.prototype.addMatch = function(game, host, min, max){
+	console.log(`nombre max de joueurs : ${max}`)
+	console.log(`nombre min de joueurs : ${min}`)
+
+	if (min == ""){
+		min = '2'
+	}
+	if (max == "") {
+		max = '0'
+	}
+
 	//javascript sucks
 	min = parseInt(min);
 	max = parseInt(max);
 
 	//can't be negative
-	var limitsInBounds = (min > 1 && max >=0);
+	let min_max_are_valid = (min > 1 && max >=0);
 	//max can't be less than the minimum
-	var validLimit = (min <= max);
+	let min_lower_than_max = (min <= max);
 	//UNLESS the max is zero (which means there is no limit)
 	if (max == 0) {
-		validLimit = true;
+		min_lower_than_max = true;
 	}
 
-	if (limitsInBounds && validLimit){
+	if (min_max_are_valid && min_lower_than_max){
 		this.matches.push(new Match(game, host, min, max));
 	} else {
 		console.log('Failed to add match');
@@ -103,7 +113,7 @@ MatchBox.prototype.addMatch = function(game, host, min, max){
 }
 
 MatchBox.prototype.removeMatch = function(match){
-	var index = this.matches.indexOf(match);
+	let index = this.matches.indexOf(match);
 	if (index > -1) {
     	this.matches.splice(index, 1);
 	} else {
@@ -112,7 +122,7 @@ MatchBox.prototype.removeMatch = function(match){
 }
 
 MatchBox.prototype.getMatchByUnique = function(matchUnique) {
-	for (var i = this.matches.length - 1; i >= 0; i--) {
+	for (let i = this.matches.length - 1; i >= 0; i--) {
 		if (this.matches[i].unique === matchUnique){
 			return this.matches[i];
 		}
