@@ -15,14 +15,12 @@
 				</tr>
 			</thead>
 			<tbody>
+			{{#each users}}
 				<tr>
-				<td>Utilisateur 1</td>
-				<td>100</td>
+				<td>{{login}}</td> <!-- Afficher le login de l'utilisateur -->
+				<td>{{points}}</td> <!-- Afficher les points de l'utilisateur -->
 				</tr>
-				<tr>
-				<td>Utilisateur 2</td>
-				<td>85</td>
-				</tr>
+			{{/each}}
 			</tbody>
 			</table>
 		  </div>

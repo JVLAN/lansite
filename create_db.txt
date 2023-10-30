@@ -8,22 +8,4 @@ CREATE TABLE
         PRIMARY KEY (`id`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
 
-CREATE TABLE
-    `t_games` (
-        `id` int NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-        `title` varchar(255) DEFAULT NULL,
-        `type` varchar(255) DEFAULT NULL,
-        PRIMARY KEY (`id`)
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
 
-CREATE TABLE
-    `t_playedGames` (
-        `id` int NOT NULL AUTO_INCREMENT,
-        `user_id` int DEFAULT NULL,
-        `game_id` int DEFAULT NULL,
-        PRIMARY KEY (`id`),
-        KEY `user_id` (`user_id`),
-        KEY `game_id` (`game_id`),
-        CONSTRAINT `t_playedGames_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_users` (`id`),
-        CONSTRAINT `t_playedGames_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `t_games` (`id`)
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
