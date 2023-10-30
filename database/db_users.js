@@ -24,8 +24,8 @@ class User {
   }
 
 static createUser(login, admin, cb) {
-	const query = 'INSERT INTO T_Users (login, IsAdmin) VALUES (?, ?)';
-	const values = [login, admin];
+	const query = `INSERT INTO T_Users (login) SELECT ? FROM DUAL WHERE NOT EXISTS (SELECT login FROM T_Users WHERE login = ?);`;
+	const values = [login, login];
 
 	connection.query(query, values, (err, result) => {
 		if (err) {
