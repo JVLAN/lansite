@@ -1,3 +1,7 @@
+** NOT MAINTENANTED ANYMORE **
+Note that we moved to our own system, sadly for now it's a on private repo, for security and testing reasons, contact us at associations@jvlan.ch if you want informations.
+
+
 # Lansite
 
 Lansite is a web app made for smaller LAN parties. It is designed to be a simple, central information hub for all attendees.
